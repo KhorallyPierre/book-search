@@ -7,9 +7,15 @@ function App() {
     // the goal of the following functions are to modify the books piece of state in some way, then pass them down to other component files
     //this is an eventHandler function
     const createBook = (title) => {
-        console.log(title, 'is the title of book that needs to be added')
-    }
-    return <div> <BookCreate onCreate={createBook}/> </div>
+        const updatedBooks = [
+            ...books,
+            {id: 123, title:title}
+        ]
+        setBooks(updatedBooks);
+    };
+    return <div> 
+        {books.length}
+        <BookCreate onCreate={createBook}/> </div>
 }
 
 export default App;
